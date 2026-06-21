@@ -27,12 +27,10 @@
 
     <div class="max-w-[1050px] mx-auto bg-[#FFF7D6] rounded-[18px] overflow-hidden shadow-[0_3px_12px_rgba(0,0,0,0.08)] relative">
         
-        <!-- Barra superior degradada -->
         <div style="height: 18px; width: 100%; background: linear-gradient(to right, #E49A00 0%, #F7C40D 45%, #FFD84A 80%, #FFF7D6 100%);"></div>
         
         <div class="p-6 sm:p-12">
 
-            <!-- PANTALLA DE INICIO -->
             <div id="pantalla-registro">
                 <h1 style="font-size: 34px; line-height: 1.15; color: #e49a00; margin: 0 0 30px 0; font-weight: bold; text-align: center;">
                     Cuestionario de Intereses Ocupacionales
@@ -50,7 +48,7 @@
 
                 <div style="background: rgba(255,255,255,0.60); border-left: 8px solid #F7C40D; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
                     <h3 style="margin: 0 0 12px 0; color: #e49a00; font-size: 19px; font-weight: bold;">Escala de Valoración del Rango (Puntaje de 1 a 5)</h3>
-                    <p style="margin: 0 0 12px 0; font-size: 16px;">Lee cada actividad y califica según el nivel de agrado que te genera la idea de realizarla:</p>
+                    <p style="margin: 0 0 12px 0; font-size: 16px;">Califica cada actividad según el nivel de agrado que te genera la idea de realizarla:</p>
                     <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.8;">
                         <li><strong>1 - Me desagrada mucho o totalmente:</strong> Actividades que preferirías evitar por completo.</li>
                         <li><strong>2 - Me desagrada algo o en parte:</strong> No despierta tu agrado o te causa cierto rechazo.</li>
@@ -68,7 +66,6 @@
                 </div>
             </div>
 
-            <!-- PANTALLA DEL TEST -->
             <div id="pantalla-test" class="hidden">
                 <div class="mb-6">
                     <div class="flex justify-between font-bold text-gray-600 mb-2 text-sm">
@@ -80,10 +77,8 @@
                     </div>
                 </div>
 
-                <!-- Contenedor dinámico de preguntas -->
                 <div id="contenedor-preguntas" class="space-y-4"></div>
 
-                <!-- Botones de Navegación -->
                 <div class="flex justify-between items-center mt-8 pt-4 border-t border-amber-200">
                     <button id="btn-anterior" onclick="cambiarBloque(-1)" style="background: white; color: #2d2d2d; font-weight: bold; padding: 12px 25px; border-radius: 10px; border: 2px solid #ccc; cursor: pointer; font-size: 15px;">
                         ← Anterior
@@ -94,7 +89,6 @@
                 </div>
             </div>
 
-            <!-- PANTALLA DE RESULTADOS -->
             <div id="pantalla-resultados" class="hidden">
                 <h2 style="color: #e49a00; font-size: 32px; text-align: center; margin-top: 0; margin-bottom: 5px; font-weight: bold;">📊 Resultados Finales</h2>
                 <p id="res-metadata" style="text-align: center; color: #7a7a7a; font-size: 15px; margin-bottom: 30px; font-weight: bold;"></p>
@@ -118,7 +112,6 @@
                     </div>
                 </div>
 
-                <!-- Bloques de Interpretación Predominantes -->
                 <div class="bg-white/90 p-6 rounded-xl space-y-6 border border-amber-200">
                     <h3 style="color: #e49a00; font-size: 22px; font-weight: bold; border-bottom: 2px solid #FFD84A; padding-bottom: 5px; margin-bottom: 15px;">
                         Interpretación de tus intereses predominantes
@@ -156,7 +149,7 @@
 
                     <div id="interpretacion-serie-G" class="hidden" style="background: rgba(255,255,255,0.55); border-left: 6px solid #E49A00; padding: 16px; border-radius: 4px 12px 12px 4px;">
                         <h4 style="color: #e49a00; font-weight: bold; font-size: 17px; margin-bottom: 4px;">📚 Literario</h4>
-                        <p class="text-justify text-sm leading-relaxed">Este interés se centra en el placer por la lectura, la escritura y la expresión verbal. Es propio de personas que encuentran en la palabra —ya sea escrita u oral— un medio para crear historias, analizar la realidad o representar personajes en ámbitos comunicacionales o teatrales.</p>
+                        <p class="text-justify text-sm leading-relaxed">Este interés se centra en el placer por la lectura, la escritura y la expresión verbal. Es propio de personas que encuentren en la palabra —ya sea escrita u oral— un medio para crear historias, analizar la realidad o representar personajes en ámbitos comunicacionales o teatrales.</p>
                     </div>
 
                     <div id="interpretacion-serie-H" class="hidden" style="background: rgba(255,255,255,0.55); border-left: 6px solid #F7C40D; padding: 16px; border-radius: 4px 12px 12px 4px;">
@@ -175,7 +168,6 @@
                     </div>
                 </div>
 
-                <!-- Acciones Finales -->
                 <div id="btn-acciones-finales" style="text-align: center; margin-top: 35px; display: flex; justify-content: center; gap: 15px;">
                     <button onclick="window.print()" style="background: #e49a00; color: white; font-weight: bold; padding: 12px 30px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px;" class="hover:bg-[#c98800] shadow">
                         📥 Guardar como PDF / Imprimir
@@ -186,7 +178,6 @@
                 </div>
             </div>
 
-            <!-- Footer Institucional -->
             <footer style="text-align: center; margin-top: 40px; font-size: 12px; color: #7a7a7a; font-weight: bold; line-height: 1.5;" class="no-print pt-4 border-t border-amber-200">
                 Sitio creado con fines educativos para el Programa Descubrí UNCUYO<br>
                 Universidad Nacional de Cuyo.
@@ -317,9 +308,14 @@
             const fin = inicio + preguntasPorBloque;
             const preguntasBloque = preguntas.slice(inicio, fin);
 
+            // ENCABEZADO FIJO DE CONSIGNA (SOLO UNA VEZ AL PRINCIPIO DEL BLOQUE)
+            const encabezadoConsigna = document.createElement('div');
+            encabezadoConsigna.className = "text-center py-3 px-4 mb-4 bg-amber-100/70 border-l-4 border-[#e49a00] rounded-r-lg font-semibold text-gray-700 text-base sm:text-lg";
+            encabezadoConsigna.innerText = "¿Qué tanto te gustaría realizar esta actividad?";
+            contenedor.appendChild(encabezadoConsigna);
+
             preguntasBloque.forEach(p => {
                 const div = document.createElement('div');
-                // Estructura en bloque: la pregunta arriba y los botones abajo ocupando todo el ancho
                 div.className = "flex flex-col p-5 border-b border-amber-100 gap-4 bg-white/40 rounded-lg";
 
                 const resActiva = respuestasUsuario[p.id];
@@ -329,11 +325,11 @@
                     styles[val] = resActiva === val ? "background: #E49A00; color: white; border-color: #E49A00;" : "background: white; color: #2d2d2d; border-color: #ccc;";
                 });
 
+                // Se quitó la frase repetitiva "¿Qué tanto te gustaría?" de cada ítem
                 div.innerHTML = `
                     <div class="text-[16px] text-gray-800 font-medium">
-                        <strong><span style="color: #E49A00;">${p.id}.</span></strong> ¿Qué tanto te gustaría? ${p.texto}
+                        <strong><span style="color: #E49A00;">${p.id}.</span></strong> ${p.texto}
                     </div>
-                    <!-- Contenedor de botones debajo de la pregunta -->
                     <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 w-full pt-1">
                         <button type="button" id="btn-1-${p.id}" onclick="seleccionarRespuesta(${p.id}, 1)" class="py-2.5 px-3 text-center font-semibold rounded-lg border-2 cursor-pointer text-xs transition-all" style="${styles[1]}">1 - Me desagrada mucho</button>
                         <button type="button" id="btn-2-${p.id}" onclick="seleccionarRespuesta(${p.id}, 2)" class="py-2.5 px-3 text-center font-semibold rounded-lg border-2 cursor-pointer text-xs transition-all" style="${styles[2]}">2 - Me desagrada algo</button>
