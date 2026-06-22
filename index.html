@@ -27,10 +27,12 @@
 
     <div class="max-w-[1050px] mx-auto bg-[#FFF7D6] rounded-[18px] overflow-hidden shadow-[0_3px_12px_rgba(0,0,0,0.08)] relative">
         
+        <!-- Barra superior degradada -->
         <div style="height: 18px; width: 100%; background: linear-gradient(to right, #E49A00 0%, #F7C40D 45%, #FFD84A 80%, #FFF7D6 100%);"></div>
         
         <div class="p-6 sm:p-12">
 
+            <!-- PANTALLA DE INICIO -->
             <div id="pantalla-registro">
                 <h1 style="font-size: 34px; line-height: 1.15; color: #e49a00; margin: 0 0 30px 0; font-weight: bold; text-align: center;">
                     Cuestionario de Intereses Ocupacionales
@@ -47,14 +49,14 @@
                 </p>
 
                 <div style="background: rgba(255,255,255,0.60); border-left: 8px solid #F7C40D; border-radius: 12px; padding: 20px; margin-bottom: 32px;">
-                    <h3 style="margin: 0 0 12px 0; color: #e49a00; font-size: 19px; font-weight: bold;">Escala de Valoración del Rango (Puntaje de 1 a 5)</h3>
-                    <p style="margin: 0 0 12px 0; font-size: 16px;">Califica cada actividad según el nivel de agrado que te genera la idea de realizarla:</p>
-                    <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.8;">
-                        <li><strong>1 - Me desagrada mucho o totalmente:</strong> Actividades que preferirías evitar por completo.</li>
-                        <li><strong>2 - Me desagrada algo o en parte:</strong> No despierta tu agrado o te causa cierto rechazo.</li>
-                        <li><strong>3 - Me es indiferente:</strong> No te genera rechazo pero tampoco te entusiasma.</li>
-                        <li><strong>4 - Me gusta algo o en parte:</strong> Te interesa realizarla de forma moderada o te da curiosidad.</li>
-                        <li><strong>5 - Me gusta mucho:</strong> Actividades con las que te identificás plenamente y disfrutarías hacer.</li>
+                    <h3 style="margin: 0 0 12px 0; color: #e49a00; font-size: 19px; font-weight: bold;">Escala de respuestas (Puntaje del 1 al 5)</h3>
+                    <p style="margin: 0 0 12px 0; font-size: 16px;">A la hora de responder, califica cada actividad seleccionando tu grado de agrado en la barra:</p>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9;">
+                        <li><strong>5:</strong> Me gusta mucho.</li>
+                        <li><strong>4:</strong> Me gusta algo o en parte.</li>
+                        <li><strong>3:</strong> Me es indiferente.</li>
+                        <li><strong>2:</strong> Me desagrada algo o en parte.</li>
+                        <li><strong>1:</strong> Me desagrada mucho o totalmente.</li>
                     </ul>
                 </div>
 
@@ -66,6 +68,7 @@
                 </div>
             </div>
 
+            <!-- PANTALLA DEL TEST -->
             <div id="pantalla-test" class="hidden">
                 <div class="mb-6">
                     <div class="flex justify-between font-bold text-gray-600 mb-2 text-sm">
@@ -77,8 +80,10 @@
                     </div>
                 </div>
 
+                <!-- Contenedor dinámico de preguntas -->
                 <div id="contenedor-preguntas" class="space-y-4"></div>
 
+                <!-- Botones de Navegación -->
                 <div class="flex justify-between items-center mt-8 pt-4 border-t border-amber-200">
                     <button id="btn-anterior" onclick="cambiarBloque(-1)" style="background: white; color: #2d2d2d; font-weight: bold; padding: 12px 25px; border-radius: 10px; border: 2px solid #ccc; cursor: pointer; font-size: 15px;">
                         ← Anterior
@@ -89,6 +94,7 @@
                 </div>
             </div>
 
+            <!-- PANTALLA DE RESULTADOS -->
             <div id="pantalla-resultados" class="hidden">
                 <h2 style="color: #e49a00; font-size: 32px; text-align: center; margin-top: 0; margin-bottom: 5px; font-weight: bold;">📊 Resultados Finales</h2>
                 <p id="res-metadata" style="text-align: center; color: #7a7a7a; font-size: 15px; margin-bottom: 30px; font-weight: bold;"></p>
@@ -102,9 +108,9 @@
                         <table class="w-full text-left border-collapse text-sm sm:text-base">
                             <thead>
                                 <tr class="border-b-2 border-amber-200 text-gray-600 font-bold">
-                                    <th class="pb-3 px-2">Área de Interés</th>
+                                    <th class="pb-3 px-3">Área de Interés</th>
                                     <th class="pb-3 text-center">Tu Puntaje</th>
-                                    <th class="pb-3 text-right px-2">Rango Máx.</th>
+                                    <th class="pb-3 text-right px-3">Rango Máx.</th>
                                 </tr>
                             </thead>
                             <tbody id="tabla-cuerpo" class="text-gray-800 font-medium"></tbody>
@@ -112,8 +118,9 @@
                     </div>
                 </div>
 
-                <div class="bg-white/90 p-6 rounded-xl space-y-6 border border-amber-200">
-                    <h3 style="color: #e49a00; font-size: 22px; font-weight: bold; border-bottom: 2px solid #FFD84A; padding-bottom: 5px; margin-bottom: 15px;">
+                <!-- Bloques de Interpretación Predominantes -->
+                <div class="bg-white/90 p-6 rounded-xl space-y-4 border border-amber-200">
+                    <h3 style="color: #e49a00; font-size: 22px; font-weight: bold; border-bottom: 2px solid #FFD84A; padding-bottom: 6px; margin-bottom: 10px;">
                         Interpretación de tus intereses predominantes
                     </h3>
                     
@@ -149,7 +156,7 @@
 
                     <div id="interpretacion-serie-G" class="hidden" style="background: rgba(255,255,255,0.55); border-left: 6px solid #E49A00; padding: 16px; border-radius: 4px 12px 12px 4px;">
                         <h4 style="color: #e49a00; font-weight: bold; font-size: 17px; margin-bottom: 4px;">📚 Literario</h4>
-                        <p class="text-justify text-sm leading-relaxed">Este interés se centra en el placer por la lectura, la escritura y la expresión verbal. Es propio de personas que encuentren en la palabra —ya sea escrita u oral— un medio para crear historias, analizar la realidad o representar personajes en ámbitos comunicacionales o teatrales.</p>
+                        <p class="text-justify text-sm leading-relaxed">Este interés se centra en el placer por la lectura, la escritura y la expresión verbal. Es propio de personas que encuentran en la palabra —ya sea escrita u oral— un medio para crear historias, analizar la realidad o representar personajes en ámbitos comunicacionales o teatrales.</p>
                     </div>
 
                     <div id="interpretacion-serie-H" class="hidden" style="background: rgba(255,255,255,0.55); border-left: 6px solid #F7C40D; padding: 16px; border-radius: 4px 12px 12px 4px;">
@@ -308,7 +315,6 @@
             const fin = inicio + preguntasPorBloque;
             const preguntasBloque = preguntas.slice(inicio, fin);
 
-            // ENCABEZADO FIJO DE CONSIGNA (SOLO UNA VEZ AL PRINCIPIO DEL BLOQUE)
             const encabezadoConsigna = document.createElement('div');
             encabezadoConsigna.className = "text-center py-3 px-4 mb-4 bg-amber-100/70 border-l-4 border-[#e49a00] rounded-r-lg font-semibold text-gray-700 text-base sm:text-lg";
             encabezadoConsigna.innerText = "¿Qué tanto te gustaría realizar esta actividad?";
@@ -325,7 +331,6 @@
                     styles[val] = resActiva === val ? "background: #E49A00; color: white; border-color: #E49A00;" : "background: white; color: #2d2d2d; border-color: #ccc;";
                 });
 
-                // Se quitó la frase repetitiva "¿Qué tanto te gustaría?" de cada ítem
                 div.innerHTML = `
                     <div class="text-[16px] text-gray-800 font-medium">
                         <strong><span style="color: #E49A00;">${p.id}.</span></strong> ${p.texto}
@@ -386,16 +391,16 @@
             cuerpo.innerHTML = '';
             
             const mapeoSeries = [
-                { key: 'A', label: 'Aire Libre (Serie A)', color: '#e49a00' },
-                { key: 'B', label: 'Mecánico (Serie B)', color: '#c98800' },
-                { key: 'C', label: 'Numérico (Serie C)', color: '#dfb00a' },
-                { key: 'D', label: 'Científico (Serie D)', color: '#e49a00' },
-                { key: 'E', label: 'Persuasivo (Serie E)', color: '#c98800' },
-                { key: 'F', label: 'Artístico Plástico (Serie F)', color: '#dfb00a' },
-                { key: 'G', label: 'Literario (Serie G)', color: '#e49a00' },
-                { key: 'H', label: 'Musical (Serie H)', color: '#c98800' },
-                { key: 'I', label: 'Servicio Social (Serie I)', color: '#dfb00a' },
-                { key: 'J', label: 'Oficina y Gestión (Serie J)', color: '#e49a00' }
+                { key: 'A', label: 'Aire Libre', color: '#e49a00' },
+                { key: 'B', label: 'Mecánico', color: '#c98800' },
+                { key: 'C', label: 'Numérico', color: '#dfb00a' },
+                { key: 'D', label: 'Científico', color: '#e49a00' },
+                { key: 'E', label: 'Persuasivo', color: '#c98800' },
+                { key: 'F', label: 'Artístico Plástico', color: '#dfb00a' },
+                { key: 'G', label: 'Literario', color: '#e49a00' },
+                { key: 'H', label: 'Musical', color: '#c98800' },
+                { key: 'I', label: 'Servicio Social', color: '#dfb00a' },
+                { key: 'J', label: 'Oficina y Gestión', color: '#e49a00' }
             ];
 
             let maxPuntaje = 0;
@@ -404,19 +409,20 @@
             mapeoSeries.forEach(ser => {
                 const pto = puntajes[ser.key];
                 const tr = document.createElement('tr');
-                tr.className = "border-b border-amber-100";
+                tr.className = "border-b border-amber-100 transition-colors hover:bg-amber-100/30";
                 
                 if (pto === maxPuntaje && pto > 0) {
-                    tr.style.background = "rgba(247, 196, 13, 0.15)";
+                    tr.style.background = "rgba(247, 196, 13, 0.22)";
+                    tr.className = "border-b border-amber-200 font-bold";
                     document.getElementById(`interpretacion-serie-${ser.key}`).classList.remove('hidden');
                 } else {
                     document.getElementById(`interpretacion-serie-${ser.key}`).classList.add('hidden');
                 }
 
                 tr.innerHTML = `
-                    <td class="py-2.5 font-bold px-2" style="color: ${ser.color}">${ser.label}</td>
-                    <td class="py-2.5 text-center font-bold text-lg">${pto}</td>
-                    <td class="py-2.5 text-right text-xs text-gray-500 px-2">De 6 a 30 pts</td>
+                    <td class="py-3 px-3 font-semibold" style="color: ${ser.color}">${ser.label}</td>
+                    <td class="py-3 text-center font-bold text-xl">${pto}</td>
+                    <td class="py-3 text-right text-sm text-gray-500 px-3">De 6 a 30 pts</td>
                 `;
                 cuerpo.appendChild(tr);
             });
@@ -434,10 +440,10 @@
                         data: [puntajes.A, puntajes.B, puntajes.C, puntajes.D, puntajes.E, puntajes.F, puntajes.G, puntajes.H, puntajes.I, puntajes.J],
                         backgroundColor: 'rgba(228, 154, 0, 0.15)',
                         borderColor: '#E49A00',
-                        borderWidth: 2.5,
+                        borderWidth: 3,
                         pointBackgroundColor: '#c98800',
                         pointBorderColor: '#fff',
-                        pointRadius: 4
+                        pointRadius: 5
                     }]
                 },
                 options: {
@@ -446,11 +452,11 @@
                             suggestedMin: 6,
                             suggestedMax: 30,
                             ticks: {
-                                font: { family: 'Montserrat', size: 10 },
+                                font: { family: 'Montserrat', size: 10, weight: '600' },
                                 stepSize: 6
                             },
                             pointLabels: {
-                                font: { family: 'Montserrat', weight: 'bold', size: 10 }
+                                font: { family: 'Montserrat', weight: 'bold', size: 11 }
                             }
                         }
                     },
